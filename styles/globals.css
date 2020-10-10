@@ -2,10 +2,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  min-height: 100%;
+  background-color: #eeeeee !important;
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +14,43 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.breadcrumb > li + li:before {
+  font-family: "fontawesome";
+  content: "\f105" !important;
+  padding: 0 5px;
+  color: #9b9b9b !important;
+}
+.breadcrumb > li {
+  color: #9b9b9b !important;
+}
+.breadcrumb > li:last-child {
+  color: #9b9b9b !important;
+  font-family: "bold";
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  src: local("Nunito"),
+    url(../public/fonts/nunito-v14-latin-regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "bold";
+  src: local("Nunito"),
+    url(../public/fonts/nunito-v14-latin-700.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "light";
+  src: local("Nunito"),
+    url(../public/fonts/nunito-v14-latin-200.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "fontawesome";
+  src: local("fontawesome"),
+    url(../public/fonts/fa-solid-900.woff2) format("woff2");
 }
