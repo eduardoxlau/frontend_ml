@@ -1,11 +1,12 @@
-import SearchBar from "../components/searchBar";
+import Item from "components/item";
 
 const Home = () => {
   return (
-    <div>
-      <SearchBar />
-      Hola
-    </div>
+    <>
+      <Item />
+      <Item />
+      <Item />
+    </>
   );
 };
 

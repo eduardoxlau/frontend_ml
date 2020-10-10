@@ -1,5 +1,7 @@
-const Items = () => {
-  return <div>Items</div>;
+import Detail from "components/detail";
+
+const Item = () => {
+  return <Detail />;
 };
 
-export default Items;
+export default Item;
