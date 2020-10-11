@@ -1,46 +1,33 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import Item from "components/item";
 import Breadcrumb from "components/breadcrumb";
-import { api, ROUTECHANGE } from "utils/constants";
+import { api } from "utils/constants";
 import { Container as Content } from "ui";
+import { useLoading } from "hooks";
 
 const Home = ({ items = [], categories = [] }) => {
-  const router = useRouter();
+  const loading = useLoading(false);
 
-  useEffect(() => {
-    const handleRouteChange = (url) => {
-      console.log("App is changing to: ", url);
-    };
-
-    router.events.on(ROUTECHANGE, handleRouteChange);
-    return () => {
-      router.events.off(ROUTECHANGE, handleRouteChange);
-    };
-  }, []);
   return (
     <>
       <Breadcrumb categories={categories} />
       <Content mb={40} mt={-20}>
         {items.map((element) => (
-          <Item item={element} key={element.id} />
+          <Item item={element} loading={loading} key={element.id} />
         ))}
       </Content>
     </>
   );
 };
 
-export const getStaticProps = async (context) => {
+Home.getInitialProps = async (props) => {
   const {
-    params: { search },
-  } = context;
+    query: { search },
+  } = props;
   try {
     const { items, categories } = await fetch(
       `${api}?search=${search}`
     ).then((response) => response.json());
-    return {
-      props: { items, categories },
-    };
+    return { items, categories };
   } catch (error) {
     return {};
   } finally {

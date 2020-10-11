@@ -1,7 +1,8 @@
 import { Container, Img, Label } from "ui";
 import { Button } from "react-bootstrap";
+import Skeleton from "react-loading-skeleton";
 
-const Detail = ({ item }) => {
+const Detail = ({ item, loading = false }) => {
   const {
     description = null,
     title = null,
@@ -13,26 +14,45 @@ const Detail = ({ item }) => {
     <Container bg="#ffffff" p={20} display="flex" flexResponsive>
       <Container flex={3}>
         <Container textAlign="center" mb={50}>
-          <Img src={picture} />
+          {loading ? (
+            <Skeleton width={400} height={400} />
+          ) : (
+            <Img src={picture} />
+          )}
         </Container>
-        <Label fontSize="1.4em">Descripción del producto</Label>
+
         <Label my={20} color="#878787">
-          {description}
+          {loading ? (
+            <Skeleton count={5} />
+          ) : (
+            <div>
+              <Label fontSize="1.4em">Descripción del producto</Label>
+              {description}
+            </div>
+          )}
         </Label>
       </Container>
       <Container flex={1}>
         <Label fontSize="0.9em">
-          {condition == "new" ? "Nuevo" : "Usado"} - 234 vendidos
+          {loading ? (
+            <Skeleton width={200} />
+          ) : (
+            <div> {condition == "new" ? "Nuevo" : "Usado"} - 234 vendidos</div>
+          )}
         </Label>
         <Label fontSize="1.3em" fontFamily="bold">
-          {title}
+          {loading ? <Skeleton width={200} /> : <div>{title}</div>}
         </Label>
         <Label fontSize="2em" fontFamily="bold" my={10}>
-          ${price.amount}
+          {loading ? <Skeleton width={200} /> : <div>${price.amount}</div>}
         </Label>
-        <Button mt={10} className="btn btn-primary btn-lg btn-block">
-          Comprar
-        </Button>
+        {loading ? (
+          <Skeleton width={200} height={50} />
+        ) : (
+          <Button mt={10} className="btn btn-primary btn-lg btn-block">
+            Comprar
+          </Button>
+        )}
       </Container>
     </Container>
   );

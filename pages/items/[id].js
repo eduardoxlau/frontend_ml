@@ -2,22 +2,24 @@ import Detail from "components/detail";
 import Breadcrumb from "components/breadcrumb";
 import { api } from "utils/constants";
 import { Container as Content } from "ui";
+import { useLoading } from "hooks";
 
 const Item = ({ item, categories }) => {
+  const loading = useLoading(false);
   return (
     <>
       <Breadcrumb categories={categories} />
       <Content mb={40} mt={-20}>
-        <Detail item={item} />
+        <Detail item={item} loading={loading} />
       </Content>
     </>
   );
 };
 
-export const getStaticProps = async (context) => {
+Item.getInitialProps = async (props) => {
   const {
-    params: { id },
-  } = context;
+    query: { id },
+  } = props;
   try {
     const { item, categories } = await fetch(`${api}/${id}`).then((response) =>
       response.json()
@@ -28,5 +30,4 @@ export const getStaticProps = async (context) => {
   } finally {
   }
 };
-
 export default Item;
