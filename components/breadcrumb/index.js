@@ -1,11 +1,15 @@
 import { Breadcrumb } from "react-bootstrap";
 
-const BreadcrumbCustom = () => {
+const BreadcrumbCustom = ({ categories }) => {
   return (
     <Breadcrumb>
-      <Breadcrumb.Item>Home</Breadcrumb.Item>
-      <Breadcrumb.Item>Library</Breadcrumb.Item>
-      <Breadcrumb.Item active>Data</Breadcrumb.Item>
+      {!categories.length ? (
+        <Breadcrumb.Item>No contiene categorias</Breadcrumb.Item>
+      ) : (
+        categories.map((category) => (
+          <Breadcrumb.Item key={category}>{category}</Breadcrumb.Item>
+        ))
+      )}
     </Breadcrumb>
   );
 };

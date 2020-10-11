@@ -1,16 +1,17 @@
 import { Container, Img, Label } from "ui";
 import Link from "next/link";
 
-const Card = () => {
+const Card = ({ item = {} }) => {
+  const { id, title, picture, free_shipping, price = { amount: 0 } } = item;
   return (
-    <Link href="/items">
+    <Link href={`/items/${id}`}>
       <Container p={10} height={200} bg="#ffffff">
         <Container
           display="flex"
           height="100%"
           borderBottom="2px solid #EEEEEE"
         >
-          <Img src="/moto.jpg" height="100%" />
+          <Img src={picture} height="100%" />
           <Container display="flex" flex="auto" justifyContent="space-between">
             <Container p={20}>
               <Label
@@ -19,11 +20,11 @@ const Card = () => {
                 display="flex"
                 alignItems="center"
               >
-                $ 1.980 &nbsp;
-                <Img src="/ic_shipping.png" />
+                $ {price.amount} &nbsp;
+                {free_shipping && <Img src="/ic_shipping.png" />}
               </Label>
               <Label fontSize="1.1em" color="#6C6C6C">
-                iPhone 11 64 Gb Blanco
+                {title}
               </Label>
             </Container>
             <Label p={50} fontSize="0.8em" color="#A6A6A6">
