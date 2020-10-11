@@ -11,8 +11,16 @@ const Card = ({ item = {} }) => {
           height="100%"
           borderBottom="2px solid #EEEEEE"
         >
-          <Img src={picture} height="100%" />
-          <Container display="flex" flex="auto" justifyContent="space-between">
+          <Container>
+            <Img src={picture} height="100%" />
+          </Container>
+
+          <Container
+            display="flex"
+            flex="auto"
+            flexResponsive
+            justifyContent="space-between"
+          >
             <Container p={20}>
               <Label
                 fontSize="1.5em"

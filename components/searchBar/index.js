@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Container as Content, Input, Img } from "ui";
-import { Container, Navbar, Form } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const preventDefault = (f) => (e) => {
   e.preventDefault();
@@ -22,9 +23,11 @@ const SearchBar = () => {
         <form onSubmit={handleSubmit}>
           <Content display="flex" alignItems="center">
             <Navbar>
-              <Navbar.Brand href="#">
-                <Img src="/Logo_ML.png" alt="logo mercadolibre" />
-              </Navbar.Brand>
+              <Link href="/">
+                <Navbar.Brand href="#">
+                  <Img src="/Logo_ML.png" alt="logo mercadolibre" />
+                </Navbar.Brand>
+              </Link>
             </Navbar>
             <Input
               onChange={handleChange}
