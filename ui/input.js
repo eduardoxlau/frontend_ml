@@ -13,11 +13,16 @@ import {
 } from "styled-system";
 
 const InputDefault = (props) => {
-  const { className, placeholder } = props;
+  const { className, placeholder, onChange, name } = props;
 
   return (
     <InputGroup>
-      <Form.Control className={className} placeholder={placeholder} />
+      <Form.Control
+        className={className}
+        name={name}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
       <InputGroup.Append>
         <InputGroup.Text>
           <img src="/ic_Search.png" alt="icon search" />
