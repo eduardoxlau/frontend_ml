@@ -20,7 +20,6 @@ const InputDefault = (props) => {
       <Form.Control
         className={className}
         name={name}
-        type="submit"
         onChange={onChange}
         placeholder={placeholder}
       />
