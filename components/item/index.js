@@ -8,11 +8,12 @@ const Card = ({ item = {}, loading = false }) => {
     <Link href={`/items/${id}`}>
       <Container p={10} height={200} bg="#ffffff">
         <Container
+          overflow="hidden"
           display="flex"
           height="100%"
           borderBottom="2px solid #EEEEEE"
         >
-          <Container>
+          <Container width={180}>
             {loading ? (
               <Skeleton width={100} height={160} />
             ) : (
@@ -46,8 +47,16 @@ const Card = ({ item = {}, loading = false }) => {
                 {loading ? <Skeleton count={2} /> : <div>{title}</div>}
               </Label>
             </Container>
-            <Label p={50} fontSize="0.8em" color="#A6A6A6">
+            <Label
+              px={50}
+              fontSize="0.8em"
+              color="#A6A6A6"
+              justifyContent="space-around"
+              display="flex"
+              flexDirection="column"
+            >
               {loading ? <Skeleton width={100} /> : <div>Capital Federal</div>}
+              <div> </div>
             </Label>
           </Container>
         </Container>
