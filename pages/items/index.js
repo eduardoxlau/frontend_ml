@@ -1,9 +1,23 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import Item from "components/item";
 import Breadcrumb from "components/breadcrumb";
-import { api } from "utils/constants";
+import { api, ROUTECHANGE } from "utils/constants";
 import { Container as Content } from "ui";
 
 const Home = ({ items = [], categories = [] }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      console.log("App is changing to: ", url);
+    };
+
+    router.events.on(ROUTECHANGE, handleRouteChange);
+    return () => {
+      router.events.off(ROUTECHANGE, handleRouteChange);
+    };
+  }, []);
   return (
     <>
       <Breadcrumb categories={categories} />
@@ -16,15 +30,17 @@ const Home = ({ items = [], categories = [] }) => {
   );
 };
 
-Home.getInitialProps = async (props) => {
+export const getStaticProps = async (context) => {
   const {
-    query: { search },
-  } = props;
+    params: { search },
+  } = context;
   try {
     const { items, categories } = await fetch(
       `${api}?search=${search}`
     ).then((response) => response.json());
-    return { items, categories };
+    return {
+      props: { items, categories },
+    };
   } catch (error) {
     return {};
   } finally {

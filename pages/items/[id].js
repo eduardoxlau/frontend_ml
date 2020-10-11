@@ -14,10 +14,10 @@ const Item = ({ item, categories }) => {
   );
 };
 
-Item.getInitialProps = async (props) => {
+export const getStaticProps = async (context) => {
   const {
-    query: { id },
-  } = props;
+    params: { id },
+  } = context;
   try {
     const { item, categories } = await fetch(`${api}/${id}`).then((response) =>
       response.json()
@@ -28,4 +28,5 @@ Item.getInitialProps = async (props) => {
   } finally {
   }
 };
+
 export default Item;

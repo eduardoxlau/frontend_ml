@@ -1,5 +1,4 @@
 {
-  "homepage": "https://eduardoxlau.github.io/mercadolibre",
   "name": "frontend_ml",
   "version": "0.1.0",
   "private": true,
@@ -18,7 +17,6 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "gh-pages": "3.0.0",
     "babel-plugin-styled-components": "^1.11.1"
   }
 }
