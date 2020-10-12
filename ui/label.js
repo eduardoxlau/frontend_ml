@@ -7,4 +7,5 @@ export const Label = styled.div`
   ${space}
   ${color}
   ${flexbox}
+  overflow-wrap: anywhere;
 `;

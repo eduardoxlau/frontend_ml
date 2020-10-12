@@ -28,7 +28,7 @@ const Detail = ({ item, loading = false }) => {
           ) : (
             <div>
               <Label fontSize="1.4em">Descripción del producto</Label>
-              {description}
+              <Label>{description}</Label>
             </div>
           )}
         </Label>
