@@ -5,7 +5,8 @@
       "components/*": ["components/*"],
       "ui/*": ["ui/*"],
       "utils/*": ["utils/*"],
-      "hooks/*": ["hooks/*"]
+      "hooks/*": ["hooks/*"],
+      "fetch_api/*": ["fetch_api/*"]
     }
   }
 }

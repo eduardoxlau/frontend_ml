@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Items should render correctly 1`] = `
+<Fragment>
+  <BreadcrumbCustom />
+  <container__Container
+    mb={40}
+    mt={-20}
+  >
+    <Detail
+      loading={false}
+    />
+  </container__Container>
+</Fragment>
+`;

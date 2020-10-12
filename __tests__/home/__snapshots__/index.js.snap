@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render correctly 1`] = `
+<container__Container
+  className="title"
+  display="flex"
+  fontFamily="bold"
+  fontSize={20}
+  justifyContent="center"
+  pt={90}
+>
+  Realiza una busqueda
+</container__Container>
+`;

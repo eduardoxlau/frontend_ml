@@ -1,5 +1,5 @@
-import Item from "components/item";
 import { Container } from "ui";
+import Item from "components/item";
 import { useLoading } from "hooks";
 
 const Home = () => {
@@ -13,6 +13,7 @@ const Home = () => {
     </Container>
   ) : (
     <Container
+      className="title"
       display="flex"
       justifyContent="center"
       pt={90}

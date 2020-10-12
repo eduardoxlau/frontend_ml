@@ -1,6 +1,6 @@
 import Detail from "components/detail";
 import Breadcrumb from "components/breadcrumb";
-import { api } from "utils/constants";
+import { getItem } from "fetch_api";
 import { Container as Content } from "ui";
 import { useLoading } from "hooks";
 
@@ -21,9 +21,7 @@ Item.getInitialProps = async (props) => {
     query: { id },
   } = props;
   try {
-    const { item, categories } = await fetch(`${api}/${id}`).then((response) =>
-      response.json()
-    );
+    const { item, categories } = await getItem(id);
     return { item, categories };
   } catch (error) {
     return {};
