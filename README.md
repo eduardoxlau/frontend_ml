@@ -9,7 +9,9 @@
 	yarn run build
 	yarn start
 
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
+
+### run test
+	yarn test
 
 if you want to change the api url, you can do it en el file "utlils/constants.js" the variable´s name is "api"
