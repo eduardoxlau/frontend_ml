@@ -8,6 +8,7 @@ const Detail = ({ item, loading = false }) => {
     title = null,
     picture = null,
     condition = null,
+    sold = 0,
     price = { amount: 0 },
   } = item;
   return (
@@ -37,7 +38,10 @@ const Detail = ({ item, loading = false }) => {
           {loading ? (
             <Skeleton width={200} />
           ) : (
-            <div> {condition == "new" ? "Nuevo" : "Usado"} - 234 vendidos</div>
+            <div>
+              {" "}
+              {condition == "new" ? "Nuevo" : "Usado"} - {sold} vendidos
+            </div>
           )}
         </Label>
         <Label fontSize="1.3em" fontFamily="bold">

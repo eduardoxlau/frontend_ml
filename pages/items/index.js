@@ -25,7 +25,7 @@ Home.getInitialProps = async (props) => {
   } = props;
   try {
     const { items, categories } = await fetch(
-      `${api}?search=${search}`
+      `${api}?q=${search}`
     ).then((response) => response.json());
     return { items, categories };
   } catch (error) {

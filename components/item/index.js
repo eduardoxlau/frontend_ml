@@ -3,7 +3,14 @@ import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
 
 const Card = ({ item = {}, loading = false }) => {
-  const { id, title, picture, free_shipping, price = { amount: 0 } } = item;
+  const {
+    id,
+    title,
+    picture,
+    city,
+    free_shipping,
+    price = { amount: 0 },
+  } = item;
   return (
     <Link href={`/items/${id}`}>
       <Container p={10} height={200} bg="#ffffff">
@@ -55,7 +62,7 @@ const Card = ({ item = {}, loading = false }) => {
               display="flex"
               flexDirection="column"
             >
-              {loading ? <Skeleton width={100} /> : <div>Capital Federal</div>}
+              {loading ? <Skeleton width={100} /> : <div>{city}</div>}
               <div> </div>
             </Label>
           </Container>
