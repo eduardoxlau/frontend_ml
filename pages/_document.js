@@ -32,16 +32,18 @@ export default class MyDocument extends Document {
       <Html lang={this.props.lang || "en"}>
         <Head>
           <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-180460790-1"
+          ></script>
+          <script
             dangerouslySetInnerHTML={{
               __html: `
-              <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180460790-1"></script>
-              <script>
+             
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
               
                 gtag('config', 'UA-180460790-1');
-              </script>
               `,
             }}
           />

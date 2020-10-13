@@ -1,6 +1,6 @@
 import { Breadcrumb } from "react-bootstrap";
 
-const BreadcrumbCustom = ({ categories }) => {
+const BreadcrumbCustom = ({ categories = [] }) => {
   return (
     <Breadcrumb>
       {!categories.length ? (

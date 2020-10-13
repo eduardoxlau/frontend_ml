@@ -2,7 +2,7 @@ import { Container, Img, Label } from "ui";
 import { Button } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 
-const Detail = ({ item, loading = false }) => {
+const Detail = ({ item = {}, loading = false }) => {
   const {
     description = null,
     title = null,
